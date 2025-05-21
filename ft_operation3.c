@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_operation3.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/14 13:55:02 by hlongin           #+#    #+#             */
-/*   Updated: 2025/05/20 16:00:51 by hlongin          ###   ########.fr       */
+/*   Created: 2025/05/19 11:59:22 by hlongin           #+#    #+#             */
+/*   Updated: 2025/05/20 15:20:53 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft/ft_printf/ft_printf.h"
 
-int     main(int argc, char **argv)
+void	ss(t_stack **stacka, t_stack **stackb)
 {
-	int		check_parsing;
+	sa(*stacka);
+	sb(*stackb);
+	ft_printf("ss");
+}
 
-	if ((check_parsing = ft_parsing(argc, argv)) == 1)
-	{
-		ft_printf("testok\n");
-	}
-	
-	return (0);
+void	rr(t_stack **stacka, t_stack **stackb)
+{
+	ra(stacka);
+	rb(stackb);
+	ft_printf("rr");
 }
