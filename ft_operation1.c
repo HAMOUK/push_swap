@@ -6,7 +6,7 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 11:50:39 by hlongin           #+#    #+#             */
-/*   Updated: 2025/05/20 15:19:16 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/05/21 16:20:23 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void    sb(t_stack *stackb)
 		stackb->content = stackb->next->content;
 		stackb->next->content = tmp;
 	}
-	ft_printf("sb");
+	ft_printf("sb\n");
 }
 
 void    sa(t_stack *stacka)
@@ -35,7 +35,7 @@ void    sa(t_stack *stacka)
 		stacka->content = stacka->next->content;
 		stacka->next->content = tmp;
 	}
-	ft_printf("sa");
+	ft_printf("sa\n");
 }
 
 void	pa(t_stack **stacka, t_stack **stackb)
@@ -49,7 +49,7 @@ void	pa(t_stack **stacka, t_stack **stackb)
 	*stackb = (*stackb)->next;
 	tmp->next = *stacka;
 	*stacka = tmp;
-	ft_printf("pa");
+	ft_printf("pa\n");
 }
 
 void	pb(t_stack **stacka, t_stack **stackb)
@@ -63,5 +63,5 @@ void	pb(t_stack **stacka, t_stack **stackb)
 	*stacka = (*stacka)->next;
 	tmp->next = *stackb;
 	*stackb = tmp;
-	ft_printf("pb");
+	ft_printf("pb\n");
 }

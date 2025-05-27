@@ -8,7 +8,8 @@ SRC = push_swap.c \
   ft_operation1.c \
   ft_operation2.c \
   ft_operation3.c \
-  ft_utils1.c
+  ft_utils_listes.c \
+  ft_utils_fonctions.c 
 
 OBJ = $(SRC:.c=.o)
 

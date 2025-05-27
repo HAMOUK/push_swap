@@ -6,7 +6,7 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 13:55:24 by hlongin           #+#    #+#             */
-/*   Updated: 2025/05/20 14:43:34 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/05/26 16:05:52 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <stdlib.h>
 #include <unistd.h>
+#include <limits.h>
 #include "libft/libft.h"
 #include "libft/ft_printf/ft_printf.h"
 
@@ -35,10 +36,12 @@ void	rrr(t_stack **stacka, t_stack **stackb);
 void	ra(t_stack **stacka);
 void	rb(t_stack **stackb);
 void	rr(t_stack **stacka, t_stack **stackb);
-int 	ft_parsing(int argc, char **argv);
-t_stack	*ft_new_stack(int *content);
-int	ft_stack_size(t_stack *lst);
-t_stack	*ft_stack_last(t_stack *lst);
 void	ft_stack_add_back(t_stack **lst, t_stack *new);
+int 	ft_parsing(int argc, char **argv);
+int	ft_stack_size(t_stack *lst);
+t_stack	*ft_new_stack(int content);
+t_stack	*ft_stack_last(t_stack *lst);
+t_stack		*fill_stack(int argc, char **argv);
+long	ft_aatoi(const char *str);
 
 #endif

@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils1.c                                        :+:      :+:    :+:   */
+/*   ft_utils_listes.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 14:08:04 by hlongin           #+#    #+#             */
-/*   Updated: 2025/05/20 14:31:00 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/05/26 16:06:12 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*ft_new_stack(int *content)
+t_stack	*ft_new_stack(int content)
 {
 	t_stack	*new_node;
 
 	new_node = (t_stack *)malloc(sizeof(t_stack));
 	if (!new_node)
 		return (NULL);
-	new_node->content = *content;
+	new_node->content = content;
 	new_node->next = NULL;
 	return (new_node);
 }

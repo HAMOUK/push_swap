@@ -6,19 +6,43 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:25:29 by hlongin           #+#    #+#             */
-/*   Updated: 2025/05/20 16:30:24 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/05/26 16:02:42 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int		check_doublon(int *array, int size)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	while (i < size)
+	{
+		j = i + 1;
+		while (j < size)
+		{
+			if (array[i] == array[j])
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
 
 int		check_digit(char *str)
 {
 	int		i;
 
 	i = 0;
-	if (str[0] == '\0')
-		return (-1);
+	if (!str || str[0] == '\0')
+		return (0);
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	if (str[i] == '\0')
+		return (0);
 	while (str[i] != '\0')
 	{
 		if (!ft_isdigit(str[i]))
@@ -30,34 +54,43 @@ int		check_digit(char *str)
 
 int 	ft_parsing(int argc, char **argv)
 {
-	char	*string;
+	int	*stacka; 
 	int		i;
+	long	tmp;
 
 	i = 1;
-	string = ft_strdup("");
 	if (argc < 2)
-		ft_printf("pas assez d'argument !\n");// checker cette conditon p/r au consignes
-	else if (argc >= 2)
 	{
-		while (i < argc)
-		{
-			string = ft_strjoin(string, argv[i]);
-			i++;
-		}
-		ft_printf(">>%s\n", string);
-	}
-	else
-	{
-		ft_printf("Erreur d'arguments\n");
+		ft_printf(">>Pas assez d'arguments !\n");
 		return (0);
 	}
-	if (check_digit(string) == -1)
+	stacka = (int *)malloc(sizeof (int) * (argc - 1));
+	if (!stacka)
+		return (0);
+	while (i < argc)
 	{
-		ft_printf("l'argument est une string vide zebi\n");
+		if (!check_digit(argv[i]))
+		{
+			ft_printf(">>L'argument n'est pas un nombre !\n");
+			free(stacka);
+			return (0);
+		}
+		tmp = ft_aatoi(argv[i]);
+		if (tmp > INT_MAX || tmp < INT_MIN)
+		{
+			ft_printf(">>Valeur hors limite !\n");
+			free(stacka);
+			return (0);
+		}
+		stacka[i - 1] = (int)tmp;
+		i++;
 	}
-	else if (check_digit(string) == 0)
+	if (!check_doublon(stacka, (argc - 1)))
 	{
-		ft_printf("Un des arguments n'est pas un nombre !\n");
+		ft_printf(">>Il y'a des doublons !\n");
+		free(stacka);
+		return (0);
 	}
+	free(stacka);
 	return (1);
 }

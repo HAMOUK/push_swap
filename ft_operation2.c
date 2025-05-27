@@ -6,7 +6,7 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 11:53:50 by hlongin           #+#    #+#             */
-/*   Updated: 2025/05/20 15:21:13 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/05/21 16:20:41 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	rra(t_stack **stacka)
 	tmp1->next = NULL;
 	tmp2->next = *stacka;
 	*stacka = tmp2;
-	ft_printf("rra");
+	ft_printf("rra\n");
 }
 
 void	rrb(t_stack **stackb)
@@ -43,14 +43,14 @@ void	rrb(t_stack **stackb)
 	tmp1->next = NULL;
 	tmp2->next = *stackb;
 	*stackb = tmp2;
-	ft_printf("rrb");
+	ft_printf("rrb\n");
 }
 
 void	rrr(t_stack **stacka, t_stack **stackb)
 {
 	rra(stacka);
 	rrb(stackb);
-	ft_printf("rrr");
+	ft_printf("rrr\n");
 }
 
 void	ra(t_stack **stacka)
@@ -63,7 +63,7 @@ void	ra(t_stack **stacka)
 	*stacka = (*stacka)->next;
 	tmp->next = NULL;
 	ft_stack_add_back(stacka, tmp);
-	ft_printf("ra");
+	ft_printf("ra\n");
 }
 
 void	rb(t_stack **stackb)
@@ -76,5 +76,5 @@ void	rb(t_stack **stackb)
 	*stackb = (*stackb)->next;
 	tmp->next = NULL;
 	ft_stack_add_back(stackb, tmp);
-	ft_printf("rb");
+	ft_printf("rb\n");
 }
