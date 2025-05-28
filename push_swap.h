@@ -6,7 +6,7 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 13:55:24 by hlongin           #+#    #+#             */
-/*   Updated: 2025/05/26 16:05:52 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/05/28 17:37:56 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 typedef struct s_stack
 {
 	int		content;
+	int		index;
 	struct s_stack *next;
 }	t_stack;
 
@@ -42,6 +43,9 @@ int	ft_stack_size(t_stack *lst);
 t_stack	*ft_new_stack(int content);
 t_stack	*ft_stack_last(t_stack *lst);
 t_stack		*fill_stack(int argc, char **argv);
+void	assign_index(t_stack *stacka);
+void	radix(t_stack **stacka, t_stack **stackb);
 long	ft_aatoi(const char *str);
+void	print_stack(t_stack *stack, const char *name);
 
 #endif

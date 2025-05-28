@@ -3,13 +3,14 @@ NAME = push_swap
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-SRC = push_swap.c \
+SRC = main.c \
   ft_parsing.c \
   ft_operation1.c \
   ft_operation2.c \
   ft_operation3.c \
   ft_utils_listes.c \
-  ft_utils_fonctions.c 
+  ft_utils_fonctions.c \
+  ft_algoritme.c \
 
 OBJ = $(SRC:.c=.o)
 
