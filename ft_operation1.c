@@ -6,34 +6,34 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 11:50:39 by hlongin           #+#    #+#             */
-/*   Updated: 2025/05/21 16:20:23 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/06/03 14:10:45 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    sb(t_stack *stackb)
+void    sb(t_stack **stackb)
 {
 	int		tmp;
 
-    if (ft_stack_size(stackb) > 1)
+	if (ft_stack_size(*stackb) > 1)
 	{
-		tmp = stackb->content;
-		stackb->content = stackb->next->content;
-		stackb->next->content = tmp;
+		tmp = (*stackb)->content;
+		(*stackb)->content = (*stackb)->next->content;
+		(*stackb)->next->content = tmp;
 	}
 	ft_printf("sb\n");
 }
 
-void    sa(t_stack *stacka)
+void    sa(t_stack **stacka)
 {
 	int		tmp;
 
-    if (ft_stack_size(stacka) > 1)
+	if (ft_stack_size(*stacka) > 1)
 	{
-		tmp = stacka->content;
-		stacka->content = stacka->next->content;
-		stacka->next->content = tmp;
+		tmp = (*stacka)->content;
+		(*stacka)->content = (*stacka)->next->content;
+		(*stacka)->next->content = tmp;
 	}
 	ft_printf("sa\n");
 }

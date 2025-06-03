@@ -6,7 +6,7 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:25:29 by hlongin           #+#    #+#             */
-/*   Updated: 2025/05/26 16:02:42 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/06/03 15:47:03 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ int		check_digit(char *str)
 	i = 0;
 	if (!str || str[0] == '\0')
 		return (0);
-	if (str[i] == '-' || str[i] == '+')
+	if ((str[i] == '-' || str[i] == '+') && str[i + 1] != '\0')
 		i++;
-	if (str[i] == '\0')
-		return (0);
+	else if (str[i] == '-' || str[i] == '+')
+	return (0);
 	while (str[i] != '\0')
 	{
 		if (!ft_isdigit(str[i]))
@@ -52,45 +52,64 @@ int		check_digit(char *str)
 	return (1);
 }
 
-int 	ft_parsing(int argc, char **argv)
+t_stack *ft_parsing(int argc, char **argv)
 {
-	int	*stacka; 
-	int		i;
+	t_stack *stacka = NULL;
 	long	tmp;
+	int		i;
 
-	i = 1;
 	if (argc < 2)
-	{
-		ft_printf(">>Pas assez d'arguments !\n");
-		return (0);
-	}
-	stacka = (int *)malloc(sizeof (int) * (argc - 1));
-	if (!stacka)
-		return (0);
+		exit(EXIT_FAILURE);
+	i = 1;
 	while (i < argc)
 	{
 		if (!check_digit(argv[i]))
 		{
-			ft_printf(">>L'argument n'est pas un nombre !\n");
-			free(stacka);
-			return (0);
+			write(2, "Error\n", 6);
+			if (stacka)
+				free_stack(stacka);
+			exit(EXIT_FAILURE);
 		}
-		tmp = ft_aatoi(argv[i]);
-		if (tmp > INT_MAX || tmp < INT_MIN)
+		if (!ft_aatoi(argv[i], &tmp))
 		{
-			ft_printf(">>Valeur hors limite !\n");
-			free(stacka);
-			return (0);
+			write(2, "Error\n", 6);
+			if (stacka)
+				free_stack(stacka);
+			exit(EXIT_FAILURE);
 		}
-		stacka[i - 1] = (int)tmp;
+		ft_stack_add_back(&stacka, ft_new_stack((int)tmp));
 		i++;
 	}
-	if (!check_doublon(stacka, (argc - 1)))
+
+	t_stack *outer = stacka;
+	while (outer)
 	{
-		ft_printf(">>Il y'a des doublons !\n");
-		free(stacka);
-		return (0);
+		t_stack *inner = outer->next;
+		while (inner)
+		{
+			if (outer->content == inner->content)
+			{
+				write(2, "Error\n", 6);
+				if (stacka)
+					free_stack(stacka);
+				exit(EXIT_FAILURE);
+			}
+			inner = inner->next;
+		}
+		outer = outer->next;
 	}
-	free(stacka);
-	return (1);
+
+	return stacka;
+}
+
+void	free_stack(t_stack *stack)
+{
+	t_stack *tmp;
+
+	while (stack)
+	{
+		tmp = stack->next;
+		free(stack);
+		stack = tmp;
+	}
 }
