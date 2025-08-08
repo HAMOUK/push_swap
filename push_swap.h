@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swapp.h                                       :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 13:55:24 by hlongin           #+#    #+#             */
-/*   Updated: 2025/08/08 16:58:01 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/08/08 17:43:08 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,7 @@ void print_stack(t_stack *stack, const char *name);
 /* Parsing */
 t_stack *ft_parsing(int argc, char **argv);
 int ft_aatoi(const char *str, long *out);
+void error(t_stack *stacka);
+void free_split(char **split);
 
 #endif

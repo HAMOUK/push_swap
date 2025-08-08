@@ -6,28 +6,28 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:25:29 by hlongin           #+#    #+#             */
-/*   Updated: 2025/08/08 12:22:01 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/08/08 17:42:19 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_doublon(int *array, int size)
+int check_doublon(t_stack *stacka)
 {
-	int	i;
-	int	j;
+	t_stack	*outer;
+	t_stack	*inner;
 
-	i = 0;
-	while (i < size)
+	outer = stacka;
+	while (outer)
 	{
-		j = i + 1;
-		while (j < size)
+		inner = outer->next;
+		while (inner)
 		{
-			if (array[i] == array[j])
-				return (0);
-			j++;
+			if (outer->content == inner->content)
+				error(stacka);
+			inner = inner->next;
 		}
-		i++;
+		outer = outer->next;
 	}
 	return (1);
 }
@@ -57,8 +57,9 @@ t_stack	*ft_parsing(int argc, char **argv)
 	t_stack	*stacka;
 	long	tmp;
 	int		i;
-	t_stack	*outer;
-	t_stack	*inner;
+	int		j;
+	char	**split;
+	
 
 	stacka = NULL;
 	if (argc < 2)
@@ -66,40 +67,23 @@ t_stack	*ft_parsing(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-		if (!check_digit(argv[i]))
+		split = ft_split(argv[i], ' ');
+		if (!split)
+			error(stacka);
+		j = 0;
+		while (split[j])
 		{
-			write(2, "Error\n", 6);
-			if (stacka)
-				free_stack(stacka);
-			exit(EXIT_FAILURE);
+			if (!check_digit(split[j]))
+				error(stacka);
+			if (!ft_aatoi(split[j], &tmp))
+				error(stacka);
+			ft_stack_add_back(&stacka, ft_new_stack((int)tmp));
+			j++;
 		}
-		if (!ft_aatoi(argv[i], &tmp))
-		{
-			write(2, "Error\n", 6);
-			if (stacka)
-				free_stack(stacka);
-			exit(EXIT_FAILURE);
-		}
-		ft_stack_add_back(&stacka, ft_new_stack((int)tmp));
+		free_split(split);
 		i++;
 	}
-	outer = stacka;
-	while (outer)
-	{
-		inner = outer->next;
-		while (inner)
-		{
-			if (outer->content == inner->content)
-			{
-				write(2, "Error\n", 6);
-				if (stacka)
-					free_stack(stacka);
-				exit(EXIT_FAILURE);
-			}
-			inner = inner->next;
-		}
-		outer = outer->next;
-	}
+	check_doublon(stacka);
 	return (stacka);
 }
 

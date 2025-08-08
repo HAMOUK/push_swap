@@ -6,7 +6,7 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 00:49:12 by hlongin           #+#    #+#             */
-/*   Updated: 2025/08/08 12:22:37 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/08/08 17:43:01 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,19 @@ void	bubble_sort(int *array, int size)
 			break ;
 		i++;
 	}
+}
+void error(t_stack *stacka)
+{
+	write(2, "Error\n", 6);
+	if (stacka)
+		free_stack(stacka);
+	exit(EXIT_FAILURE);
+}
+
+void free_split(char **split)
+{
+	int i = 0;
+	while (split[i])
+		free(split[i++]);
+	free(split);
 }
