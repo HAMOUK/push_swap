@@ -1,0 +1,8 @@
+# Test 3 nombres (copier-coller cette ligne)
+ARG=$(python3 -c "import random; print(' '.join(map(str, random.sample(range(-5000, 5000), 3))))"); echo "3 nums: $ARG | Result: $(./push_swap $ARG | ./checker_linux $ARG) | Moves: $(./push_swap $ARG | wc -l)"
+# Test 5 nombres (copier-coller cette ligne)
+ARG=$(python3 -c "import random; print(' '.join(map(str, random.sample(range(-5000, 5000), 5))))"); echo "5 nums: $ARG | Result: $(./push_swap $ARG | ./checker_linux $ARG) | Moves: $(./push_swap $ARG | wc -l)"
+# Test 100 nombres (copier-coller cette ligne)
+ARG=$(python3 -c "import random; print(' '.join(map(str, random.sample(range(-5000, 5000), 100))))"); echo "100 nums: $ARG | Result: $(./push_swap $ARG | ./checker_linux $ARG) | Moves: $(./push_swap $ARG | wc -l)"
+# Test 500 nombres (copier-coller cette ligne)
+ARG=$(python3 -c "import random; print(' '.join(map(str, random.sample(range(-5000, 5000), 500))))"); echo "500 nums: $ARG | Result: $(./pu➜  push-swap-after➜  push-swap-after-42 git:(➜  pus➜➜➜➜  p➜  pus➜  push-➜➜➜  p➜  push-swap-a➜  push-s➜  push-swa➜  push➜  pus➜➜ ➜ ➜

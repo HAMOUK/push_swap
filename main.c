@@ -6,7 +6,7 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 13:55:02 by hlongin           #+#    #+#             */
-/*   Updated: 2025/08/08 12:22:46 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/08/08 16:01:54 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@ int	main(int argc, char **argv)
 	}
 	assign_index(stacka);
 	dispatch_sort(&stacka, &stackb);
+	/* while (stacka)
+	{
+		ft_printf("%d\n", stacka->content);
+		stacka = stacka->next;
+	} */
 	free_stack(stacka);
 	if (stackb)
 		free_stack(stackb);
