@@ -1,0 +1,63 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/11 00:49:12 by hlongin           #+#    #+#             */
+/*   Updated: 2025/06/11 02:25:17 by hlongin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+void	assign_index(t_stack *stacka)
+{
+	t_stack		*current;
+	t_stack		*compare;
+	int		i;
+
+	current = stacka;
+	while (current)
+	{
+		i = 0;
+		compare = stacka;
+		while (compare)
+		{
+			if (current->content > compare->content )
+				i++;
+			compare = compare->next;
+		}
+		current->index = i;
+		current = current ->next;
+	}
+}
+
+void 	bubble_sort(int *array, int size)
+{
+	int		i;
+	int		j;
+	int		temp;
+	int		swapped;
+
+	i = 0;
+	while (i < size - 1)
+	{
+		j = 0;
+		while (j < size - i - 1)
+		{
+			if (array[j] > array[j + 1])
+			{
+				temp = array[j];
+				array[j] = array[j + 1];
+				array[j + 1] = temp;
+				swapped = 1;
+			}
+			j++;
+		}
+		if (swapped == 0)
+			break;
+		i++;
+	}
+}

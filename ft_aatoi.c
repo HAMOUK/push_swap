@@ -6,7 +6,7 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 14:22:32 by hlongin           #+#    #+#             */
-/*   Updated: 2025/06/03 15:19:53 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/06/03 23:07:45 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,11 @@ int	ft_aatoi(const char *str, long *out)
 		return (0);
 	while (str[i] && ft_isdigit(str[i]))
 	{
-		result = result * 10 + (str[i] - '0');
-		if ((sign == 1 && result > INT_MAX) || (sign == -1 && -result < INT_MIN))
+		if (sign == 1 && result > (INT_MAX - (str[i] - '0')) / 10)
 			return (0);
+		if (sign == -1 && result > (-(long)INT_MIN - (str[i] - '0')) / 10)
+			return (0);
+		result = result * 10 + (str[i] - '0');
 		i++;
 	}
 	if (str[i] != '\0')

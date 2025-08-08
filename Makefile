@@ -5,13 +5,16 @@ LIBFT = $(LIBFT_DIR)/libft.a
 
 SRC = main.c \
   ft_parsing.c \
+  ft_aatoi.c \
   ft_operation1.c \
   ft_operation2.c \
   ft_operation3.c \
   ft_utils_listes.c \
-  ft_aatoi.c \
   ft_utils_sort.c \
-  ft_algoritme.c 
+  ft_utils_stack.c \
+  ft_utils_chunk.c \
+  ft_utils.c \
+  ft_algoritme.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -42,13 +45,7 @@ re: fclean all
 .PHONY: all clean fclean re
 
 loading:
-	@i=0 ; \
-	while [ $$i -le 20 ]; do \
-		printf "\r\033[1;33m[%-20s] %d%%\033[0m" "$$(printf '#%.0s' `seq 1 $$i`)" "$$((i*5))"; \
-		sleep 0.1 ; \
-		i=$$((i+1)) ; \
-	done ; \
-	echo ""
+	@echo "✅ Compilation terminée avec succès !"
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@

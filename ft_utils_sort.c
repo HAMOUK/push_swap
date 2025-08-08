@@ -6,7 +6,7 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 11:13:40 by hlongin           #+#    #+#             */
-/*   Updated: 2025/06/03 15:45:42 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/06/04 00:01:32 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,22 +79,18 @@ void	sort_four(t_stack **stacka, t_stack **stackb)
 
 void	sort_five(t_stack **stacka, t_stack **stackb)
 {
-	t_stack		*tmp;
-	int  		pos0;
-	int			pos1;
-	
-	tmp = *stacka;
-	pos0 = find_pos(tmp, 0);
-	while (pos0-- > 0)
+	int	pos;
+
+	pos = find_pos(*stacka, 0);
+	while (pos-- > 0)
 		ra(stacka);
 	pb(stacka, stackb);
-	tmp = *stacka;
-	pos1 = find_pos(tmp, 1);
-	while (pos1-- > 0)
+	pos = find_pos(*stacka, 1);
+	while (pos-- > 0)
 		ra(stacka);
-	pb(stacka,stackb);
+	pb(stacka, stackb);
 	sort_three(stacka);
-	if ((*stackb)->index > (*stackb)->next->index)
+	if ((*stackb)->index < (*stackb)->next->index)
 		sb(stackb);
 	pa(stacka, stackb);
 	pa(stacka, stackb);
