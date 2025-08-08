@@ -6,7 +6,7 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 02:22:35 by hlongin           #+#    #+#             */
-/*   Updated: 2025/06/11 02:43:42 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/08/08 12:22:06 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,9 @@ int	find_median_chunk(t_stack *stacka, int chunk_max)
 }
 int	has_chunk_element(t_stack *stacka, int chunk_max)
 {
-	t_stack *current = stacka;
+	t_stack	*current;
+
+	current = stacka;
 	while (current)
 	{
 		if (current->index <= chunk_max)

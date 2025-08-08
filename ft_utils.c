@@ -6,7 +6,7 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 00:49:12 by hlongin           #+#    #+#             */
-/*   Updated: 2025/06/11 02:25:17 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/08/08 12:22:37 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	assign_index(t_stack *stacka)
 {
-	t_stack		*current;
-	t_stack		*compare;
+	t_stack	*current;
+	t_stack	*compare;
 	int		i;
 
 	current = stacka;
@@ -25,21 +25,21 @@ void	assign_index(t_stack *stacka)
 		compare = stacka;
 		while (compare)
 		{
-			if (current->content > compare->content )
+			if (current->content > compare->content)
 				i++;
 			compare = compare->next;
 		}
 		current->index = i;
-		current = current ->next;
+		current = current->next;
 	}
 }
 
-void 	bubble_sort(int *array, int size)
+void	bubble_sort(int *array, int size)
 {
-	int		i;
-	int		j;
-	int		temp;
-	int		swapped;
+	int	i;
+	int	j;
+	int	temp;
+	int	swapped;
 
 	i = 0;
 	while (i < size - 1)
@@ -57,7 +57,7 @@ void 	bubble_sort(int *array, int size)
 			j++;
 		}
 		if (swapped == 0)
-			break;
+			break ;
 		i++;
 	}
 }

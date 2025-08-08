@@ -6,33 +6,32 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 11:13:40 by hlongin           #+#    #+#             */
-/*   Updated: 2025/06/04 00:01:32 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/08/08 12:22:28 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_two(t_stack **stacka)
+void	sort_two(t_stack **stacka)
 {
-	t_stack		*current;
-	t_stack		*compare;
+	t_stack	*current;
+	t_stack	*compare;
 
 	current = *stacka;
 	compare = current->next;
-		if (current-> content > compare->content)
-			sa(stacka);
+	if (current->content > compare->content)
+		sa(stacka);
 }
 
 void	sort_three(t_stack **stacka)
 {
-	int			a;
-	int			b;
-	int			c;
+	int	a;
+	int	b;
+	int	c;
 
 	a = (*stacka)->index;
 	b = (*stacka)->next->index;
 	c = (*stacka)->next->next->index;
-
 	if (a > b && b < c && a < c)
 		sa(stacka);
 	else if (a > b && b > c)
@@ -49,12 +48,12 @@ void	sort_three(t_stack **stacka)
 	}
 	else if (a < b && b > c && a > c)
 		rra(stacka);
-}  
+}
 
 void	sort_four(t_stack **stacka, t_stack **stackb)
 {
-	t_stack		*tmp;
-	int  		pos;
+	t_stack	*tmp;
+	int		pos;
 
 	pos = 0;
 	tmp = *stacka;
@@ -66,7 +65,7 @@ void	sort_four(t_stack **stacka, t_stack **stackb)
 	if (pos == 1)
 		ra(stacka);
 	else if (pos == 2)
-	{	
+	{
 		rra(stacka);
 		rra(stacka);
 	}
@@ -95,9 +94,9 @@ void	sort_five(t_stack **stacka, t_stack **stackb)
 	pa(stacka, stackb);
 	pa(stacka, stackb);
 }
-int		find_pos(t_stack *tmp, int target)
+int	find_pos(t_stack *tmp, int target)
 {
-	int		pos;
+	int pos;
 
 	pos = 0;
 	while (tmp && tmp->index != target)

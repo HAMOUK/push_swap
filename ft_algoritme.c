@@ -6,7 +6,7 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 16:08:18 by hlongin           #+#    #+#             */
-/*   Updated: 2025/06/11 02:43:29 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/08/08 12:20:30 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	push_chunk_to_b(t_stack **stacka, t_stack **stackb, int chunk_max)
 {
-	// int		pushed;
-	int		median;
+	int	median;
 
+	// int		pushed;
 	median = find_median_chunk(*stacka, chunk_max);
 	// pushed = 0;
 	while (has_chunk_element(*stacka, chunk_max))
 	{
 		if ((*stacka)->index <= chunk_max)
-		{	
+		{
 			pb(stacka, stackb);
 			if ((*stackb)->index > median)
 				rb(stackb);
@@ -56,9 +56,9 @@ void	push_back_to_a(t_stack **stacka, t_stack **stackb)
 
 void	sort_large(t_stack **stacka, t_stack **stackb)
 {
-	int		chunk_max;
-	int		chunk_step;
-	int		max_index;
+	int	chunk_max;
+	int	chunk_step;
+	int	max_index;
 
 	max_index = ft_stack_size(*stacka) - 1;
 	if (ft_stack_size(*stacka) <= 100)

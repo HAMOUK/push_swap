@@ -6,15 +6,15 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 11:50:39 by hlongin           #+#    #+#             */
-/*   Updated: 2025/06/03 14:10:45 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/08/08 12:20:45 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    sb(t_stack **stackb)
+void	sb(t_stack **stackb)
 {
-	int		tmp;
+	int	tmp;
 
 	if (ft_stack_size(*stackb) > 1)
 	{
@@ -25,9 +25,9 @@ void    sb(t_stack **stackb)
 	ft_printf("sb\n");
 }
 
-void    sa(t_stack **stacka)
+void	sa(t_stack **stacka)
 {
-	int		tmp;
+	int	tmp;
 
 	if (ft_stack_size(*stacka) > 1)
 	{
@@ -44,7 +44,6 @@ void	pa(t_stack **stacka, t_stack **stackb)
 
 	if (!stackb || !*stackb)
 		return ;
-
 	tmp = *stackb;
 	*stackb = (*stackb)->next;
 	tmp->next = *stacka;
@@ -54,7 +53,7 @@ void	pa(t_stack **stacka, t_stack **stackb)
 
 void	pb(t_stack **stacka, t_stack **stackb)
 {
-	t_stack	*tmp;
+	t_stack *tmp;
 
 	if (!stacka || !*stacka)
 		return ;

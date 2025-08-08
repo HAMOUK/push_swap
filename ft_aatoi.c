@@ -6,7 +6,7 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 14:22:32 by hlongin           #+#    #+#             */
-/*   Updated: 2025/06/03 23:07:45 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/08/08 12:28:31 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	ft_aatoi(const char *str, long *out)
 	i = 0;
 	sign = 1;
 	result = 0;
-
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 		i++;
 	if ((str[i] == '-' || str[i] == '+') && str[i + 1] != '\0')

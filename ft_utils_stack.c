@@ -6,7 +6,7 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 02:23:55 by hlongin           #+#    #+#             */
-/*   Updated: 2025/06/11 02:24:51 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/08/08 12:22:33 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 int	find_max_index(t_stack *stack)
 {
-    int		max;
-    t_stack	*current;
+	int		max;
+	t_stack	*current;
 
-    current = stack;
-    max = current->index;
-    while (current)
-    {
-        if (current->index > max)
-            max = current->index;
-        current = current->next;
-    }
-    return (max);
+	current = stack;
+	max = current->index;
+	while (current)
+	{
+		if (current->index > max)
+			max = current->index;
+		current = current->next;
+	}
+	return (max);
 }
 
 int	get_position(t_stack *stack, int index)

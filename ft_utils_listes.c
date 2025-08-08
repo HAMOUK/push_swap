@@ -6,7 +6,7 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 14:08:04 by hlongin           #+#    #+#             */
-/*   Updated: 2025/05/28 16:30:08 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/08/08 12:22:11 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_stack	*ft_stack_last(t_stack *lst)
 
 void	ft_stack_add_back(t_stack **lst, t_stack *new)
 {
-	t_stack	*last;
+	t_stack *last;
 
 	if (!lst || !new)
 		return ;

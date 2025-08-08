@@ -6,16 +6,16 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:25:29 by hlongin           #+#    #+#             */
-/*   Updated: 2025/06/03 15:47:03 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/08/08 12:22:01 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		check_doublon(int *array, int size)
+int	check_doublon(int *array, int size)
 {
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < size)
@@ -32,9 +32,9 @@ int		check_doublon(int *array, int size)
 	return (1);
 }
 
-int		check_digit(char *str)
+int	check_digit(char *str)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	if (!str || str[0] == '\0')
@@ -42,7 +42,7 @@ int		check_digit(char *str)
 	if ((str[i] == '-' || str[i] == '+') && str[i + 1] != '\0')
 		i++;
 	else if (str[i] == '-' || str[i] == '+')
-	return (0);
+		return (0);
 	while (str[i] != '\0')
 	{
 		if (!ft_isdigit(str[i]))
@@ -52,12 +52,15 @@ int		check_digit(char *str)
 	return (1);
 }
 
-t_stack *ft_parsing(int argc, char **argv)
+t_stack	*ft_parsing(int argc, char **argv)
 {
-	t_stack *stacka = NULL;
+	t_stack	*stacka;
 	long	tmp;
 	int		i;
+	t_stack	*outer;
+	t_stack	*inner;
 
+	stacka = NULL;
 	if (argc < 2)
 		exit(EXIT_FAILURE);
 	i = 1;
@@ -80,11 +83,10 @@ t_stack *ft_parsing(int argc, char **argv)
 		ft_stack_add_back(&stacka, ft_new_stack((int)tmp));
 		i++;
 	}
-
-	t_stack *outer = stacka;
+	outer = stacka;
 	while (outer)
 	{
-		t_stack *inner = outer->next;
+		inner = outer->next;
 		while (inner)
 		{
 			if (outer->content == inner->content)
@@ -98,13 +100,12 @@ t_stack *ft_parsing(int argc, char **argv)
 		}
 		outer = outer->next;
 	}
-
-	return stacka;
+	return (stacka);
 }
 
 void	free_stack(t_stack *stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	while (stack)
 	{
