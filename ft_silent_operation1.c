@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_operation2.c                                    :+:      :+:    :+:   */
+/*   ft_silent_operation1.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 11:53:50 by hlongin           #+#    #+#             */
-/*   Updated: 2025/08/08 16:43:27 by hlongin          ###   ########.fr       */
+/*   Created: 2025/08/08 16:32:58 by hlongin           #+#    #+#             */
+/*   Updated: 2025/08/08 16:40:39 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_stack **stacka)
+void	silent_rra(t_stack **stacka)
 {
 	t_stack	*tmp1;
 	t_stack	*tmp2;
@@ -26,10 +26,9 @@ void	rra(t_stack **stacka)
 	tmp1->next = NULL;
 	tmp2->next = *stacka;
 	*stacka = tmp2;
-	ft_printf("rra\n");
 }
 
-void	rrb(t_stack **stackb)
+void	silent_rrb(t_stack **stackb)
 {
 	t_stack	*tmp1;
 	t_stack	*tmp2;
@@ -43,38 +42,28 @@ void	rrb(t_stack **stackb)
 	tmp1->next = NULL;
 	tmp2->next = *stackb;
 	*stackb = tmp2;
-	ft_printf("rrb\n");
 }
 
-void	rrr(t_stack **stacka, t_stack **stackb)
+void	silent_sa(t_stack **stacka)
 {
-	silent_rra(stacka);
-	silent_rrb(stackb);
-	ft_printf("rrr\n");
+	int	tmp;
+
+	if (ft_stack_size(*stacka) > 1)
+	{
+		tmp = (*stacka)->content;
+		(*stacka)->content = (*stacka)->next->content;
+		(*stacka)->next->content = tmp;
+	}
 }
 
-void	ra(t_stack **stacka)
+void	silent_sb(t_stack **stackb)
 {
-	t_stack	*tmp;
+	int	tmp;
 
-	if (!stacka || !*stacka || !(*stacka)->next)
-		return ;
-	tmp = *stacka;
-	*stacka = (*stacka)->next;
-	tmp->next = NULL;
-	ft_stack_add_back(stacka, tmp);
-	ft_printf("ra\n");
-}
-
-void	rb(t_stack **stackb)
-{
-	t_stack *tmp;
-
-	if (!stackb || !*stackb || !(*stackb)->next)
-		return ;
-	tmp = *stackb;
-	*stackb = (*stackb)->next;
-	tmp->next = NULL;
-	ft_stack_add_back(stackb, tmp);
-	ft_printf("rb\n");
+	if (ft_stack_size(*stackb) > 1)
+	{
+		tmp = (*stackb)->content;
+		(*stackb)->content = (*stackb)->next->content;
+		(*stackb)->next->content = tmp;
+	}
 }

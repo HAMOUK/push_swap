@@ -9,6 +9,8 @@ SRC = main.c \
   ft_operation1.c \
   ft_operation2.c \
   ft_operation3.c \
+  ft_silent_operation1.c \
+  ft_silent_operation2.c \
   ft_utils_listes.c \
   ft_utils_sort.c \
   ft_utils_stack.c \

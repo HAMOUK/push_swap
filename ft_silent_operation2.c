@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_operation3.c                                    :+:      :+:    :+:   */
+/*   ft_silent_operation2.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 11:59:22 by hlongin           #+#    #+#             */
-/*   Updated: 2025/08/08 16:43:56 by hlongin          ###   ########.fr       */
+/*   Created: 2025/08/08 16:37:28 by hlongin           #+#    #+#             */
+/*   Updated: 2025/08/08 16:40:54 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ss(t_stack **stacka, t_stack **stackb)
+void	silent_ra(t_stack **stacka)
 {
-	silent_sa(stacka);
-	silent_sb(stackb);
-	ft_printf("ss\n");
-}
+	t_stack	*tmp;
 
-void	rr(t_stack **stacka, t_stack **stackb)
+	if (!stacka || !*stacka || !(*stacka)->next)
+		return ;
+	tmp = *stacka;
+	*stacka = (*stacka)->next;
+	tmp->next = NULL;
+	ft_stack_add_back(stacka, tmp);
+}
+void	silent_rb(t_stack **stackb)
 {
-	silent_ra(stacka);
-	silent_rb(stackb);
-	ft_printf("rr\n");
+	t_stack *tmp;
+
+	if (!stackb || !*stackb || !(*stackb)->next)
+		return ;
+	tmp = *stackb;
+	*stackb = (*stackb)->next;
+	tmp->next = NULL;
+	ft_stack_add_back(stackb, tmp);
 }
