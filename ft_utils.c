@@ -6,7 +6,7 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 00:49:12 by hlongin           #+#    #+#             */
-/*   Updated: 2025/08/11 14:14:48 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/08/11 17:58:42 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,19 @@ void	error(t_stack *stacka)
 
 void	free_split(char **split)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (split[i])
 		free(split[i++]);
 	free(split);
+}
+
+int	ft_isspace(char ch)
+{
+	if (ch == ' ' || ch == '\t' || ch == '\n' || ch == '\v' || ch == '\f'
+		|| ch == '\r')
+		return (1);
+	else
+		return (0);
 }

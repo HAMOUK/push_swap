@@ -6,7 +6,7 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:25:29 by hlongin           #+#    #+#             */
-/*   Updated: 2025/08/11 14:30:29 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/08/11 17:44:06 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ t_stack	*ft_parsing(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-		split = ft_split(argv[i], ' ');
+		split = ft_splitr(argv[i]);
 		if (!split)
 			error(stacka);
 		add_split_to_stack(&stacka, split);

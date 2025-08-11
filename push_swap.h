@@ -6,7 +6,7 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 13:55:24 by hlongin           #+#    #+#             */
-/*   Updated: 2025/08/11 14:07:51 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/08/11 17:50:07 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ void				print_stack(t_stack *stack, const char *name);
 t_stack				*ft_parsing(int argc, char **argv);
 int					ft_aatoi(const char *str, long *out);
 void				error(t_stack *stacka);
+int					ft_isspace(char ch);
+char				**ft_splitr(const char *s);
 void				free_split(char **split);
 
 #endif
