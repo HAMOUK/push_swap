@@ -6,7 +6,7 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 16:37:28 by hlongin           #+#    #+#             */
-/*   Updated: 2025/08/08 16:40:54 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/08/11 14:12:26 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ void	silent_ra(t_stack **stacka)
 	tmp->next = NULL;
 	ft_stack_add_back(stacka, tmp);
 }
+
 void	silent_rb(t_stack **stackb)
 {
-	t_stack *tmp;
+	t_stack		*tmp;
 
 	if (!stackb || !*stackb || !(*stackb)->next)
 		return ;

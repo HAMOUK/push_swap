@@ -6,7 +6,7 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 16:08:18 by hlongin           #+#    #+#             */
-/*   Updated: 2025/08/08 12:20:30 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/08/11 14:17:03 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@ void	push_chunk_to_b(t_stack **stacka, t_stack **stackb, int chunk_max)
 {
 	int	median;
 
-	// int		pushed;
 	median = find_median_chunk(*stacka, chunk_max);
-	// pushed = 0;
 	while (has_chunk_element(*stacka, chunk_max))
 	{
 		if ((*stacka)->index <= chunk_max)
@@ -26,7 +24,6 @@ void	push_chunk_to_b(t_stack **stacka, t_stack **stackb, int chunk_max)
 			pb(stacka, stackb);
 			if ((*stackb)->index > median)
 				rb(stackb);
-			// pushed++;
 		}
 		else
 			ra(stacka);
@@ -74,6 +71,7 @@ void	sort_large(t_stack **stacka, t_stack **stackb)
 	push_chunk_to_b(stacka, stackb, chunk_max);
 	push_back_to_a(stacka, stackb);
 }
+
 void	dispatch_sort(t_stack **stacka, t_stack **stackb)
 {
 	int	size;
@@ -90,29 +88,3 @@ void	dispatch_sort(t_stack **stacka, t_stack **stackb)
 	else if (size > 5)
 		sort_large(stacka, stackb);
 }
-/*void	radix(t_stack **stacka, t_stack **stackb, int size)
-{
-	int		max_bits;
-	int		i;
-	int		j;
-
-	i = 0;
-	max_bits = 0;
-	while ((size - 1) >> max_bits)
-		max_bits++;
-	while (i < max_bits)
-	{
-		j = 0;
-		while (j < size)
-		{
-			if ((((*stacka)->index >> i) & 1) == 1)
-				ra(stacka);
-			else
-				pb(stacka, stackb);
-			j++;
-		}
-		while (*stackb)
-			pa(stacka, stackb);
-		i++;
-	}
-}*/

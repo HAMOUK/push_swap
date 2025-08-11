@@ -6,13 +6,13 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:25:29 by hlongin           #+#    #+#             */
-/*   Updated: 2025/08/08 17:42:19 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/08/11 14:30:29 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int check_doublon(t_stack *stacka)
+int	check_doublon(t_stack *stacka)
 {
 	t_stack	*outer;
 	t_stack	*inner;
@@ -52,14 +52,28 @@ int	check_digit(char *str)
 	return (1);
 }
 
+void	add_split_to_stack(t_stack **stacka, char **split)
+{
+	int		j;
+	long	tmp;
+
+	j = 0;
+	while (split[j])
+	{
+		if (!check_digit(split[j]))
+			error(*stacka);
+		if (!ft_aatoi(split[j], &tmp))
+			error(*stacka);
+		ft_stack_add_back(stacka, ft_new_stack((int)tmp));
+		j++;
+	}
+}
+
 t_stack	*ft_parsing(int argc, char **argv)
 {
 	t_stack	*stacka;
-	long	tmp;
 	int		i;
-	int		j;
 	char	**split;
-	
 
 	stacka = NULL;
 	if (argc < 2)
@@ -70,16 +84,7 @@ t_stack	*ft_parsing(int argc, char **argv)
 		split = ft_split(argv[i], ' ');
 		if (!split)
 			error(stacka);
-		j = 0;
-		while (split[j])
-		{
-			if (!check_digit(split[j]))
-				error(stacka);
-			if (!ft_aatoi(split[j], &tmp))
-				error(stacka);
-			ft_stack_add_back(&stacka, ft_new_stack((int)tmp));
-			j++;
-		}
+		add_split_to_stack(&stacka, split);
 		free_split(split);
 		i++;
 	}

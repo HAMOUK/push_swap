@@ -6,7 +6,7 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 11:53:50 by hlongin           #+#    #+#             */
-/*   Updated: 2025/08/08 16:43:27 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/08/11 14:13:51 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	ra(t_stack **stacka)
 
 void	rb(t_stack **stackb)
 {
-	t_stack *tmp;
+	t_stack		*tmp;
 
 	if (!stackb || !*stackb || !(*stackb)->next)
 		return ;

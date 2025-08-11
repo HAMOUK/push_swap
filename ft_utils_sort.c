@@ -6,7 +6,7 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 11:13:40 by hlongin           #+#    #+#             */
-/*   Updated: 2025/08/08 12:22:28 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/08/11 14:13:12 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,9 +94,10 @@ void	sort_five(t_stack **stacka, t_stack **stackb)
 	pa(stacka, stackb);
 	pa(stacka, stackb);
 }
+
 int	find_pos(t_stack *tmp, int target)
 {
-	int pos;
+	int		pos;
 
 	pos = 0;
 	while (tmp && tmp->index != target)

@@ -6,7 +6,7 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 11:50:39 by hlongin           #+#    #+#             */
-/*   Updated: 2025/08/08 12:20:45 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/08/11 14:08:41 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,10 @@ void	pa(t_stack **stacka, t_stack **stackb)
 
 void	pb(t_stack **stacka, t_stack **stackb)
 {
-	t_stack *tmp;
+	t_stack		*tmp;
 
 	if (!stacka || !*stacka)
 		return ;
-
 	tmp = *stacka;
 	*stacka = (*stacka)->next;
 	tmp->next = *stackb;
