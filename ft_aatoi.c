@@ -6,7 +6,7 @@
 /*   By: hlongin <hlongin@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 14:22:32 by hlongin           #+#    #+#             */
-/*   Updated: 2025/08/11 15:02:34 by hlongin          ###   ########.fr       */
+/*   Updated: 2025/08/11 15:08:21 by hlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	ft_aatoi(const char *str, long *out)
 
 	i = 0;
 	result = 0;
-	skip_whites_spaces(str, &i);
+	skip_white_spaces(str, &i);
 	sign = parse_sign(str, &i);
 	if (!ft_isdigit(str[i]))
 		return (0);
